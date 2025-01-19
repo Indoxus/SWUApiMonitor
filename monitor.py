@@ -4,6 +4,8 @@ import time
 import datetime
 import sys
 
+n = 5
+
 if len(sys.argv)>1:
 	stop = sys.argv[1]
 else:
@@ -39,7 +41,7 @@ def format_time(time):
 
 while True:
 	time.sleep(1)
-	r = requests.get('https://api.swu.de/mobility/v1/stop/passage/Departures?StopNumber='+str(stop)+'&Limit=4')
+	r = requests.get('https://api.swu.de/mobility/v1/stop/passage/Departures?StopNumber='+str(stop)+'&Limit='+str(n))
 	jsun = r.json()
 	blank=0
 	#print(r.text)
@@ -55,18 +57,18 @@ while True:
 		print("")
 		continue
 	formated = []
-	for i in range(4):
+	for i in range(n):
 		try:
 			temp = dict(data[i])
 			#print(temp)
 			formated.append([temp["DepartureDirectionText"],temp["DepartureCountdown"]])
 		except:
-			blank = 3-i
+			blank = n-1-i
 			break
 	
 	print("Abfahrten")
 	print('{:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()))
-	if blank == 3:
+	if blank == n-1:
 		print("")
 		print("no data")
 		print("")
