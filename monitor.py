@@ -20,13 +20,13 @@ def format_time(time):
 	out = ""
 	if time <0:
 		time *= -1
-		out+="-"
+		z+"-"
 	else:
-		out+= " "
+		z= " "
 	minutes = time//60
 	seconds = time%60
 	if minutes < 10:
-		out += "0" +str(minutes)
+		out += z +str(minutes)
 	else:
 		out += str(minutes)
 	out+=":"
