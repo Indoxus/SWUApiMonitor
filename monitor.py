@@ -22,7 +22,7 @@ def format_time(time):
 	out = ""
 	if time <0:
 		time *= -1
-		z+"-"
+		z = "-"
 	else:
 		z= " "
 	minutes = time//60
