@@ -41,7 +41,16 @@ def format_time(time):
 
 while True:
 	time.sleep(1)
-	r = requests.get('https://api.swu.de/mobility/v1/stop/passage/Departures?StopNumber='+str(stop)+'&Limit='+str(n))
+	try:
+		r = requests.get('https://api.swu.de/mobility/v1/stop/passage/Departures?StopNumber='+str(stop)+'&Limit='+str(n))
+	except:
+		print("Abfahrten")
+		print("")
+		print("")
+		print("connection refused")
+		print("")
+		print("")
+		continue
 	jsun = r.json()
 	blank=0
 	#print(r.text)
