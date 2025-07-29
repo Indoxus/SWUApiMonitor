@@ -101,8 +101,8 @@ class Monitor:
 			return
 		for f in self.departures:
 			line = format_time(f[1]-timepassed) + " " + f[0]
-			print(line[:24])
-		for i in range(self.stopamount-self.truestopamount):
+			print(line[:22])
+		for i in range(self.stopamount-self.truestopamount-1):
 			print("")
 
 	
