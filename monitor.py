@@ -93,7 +93,6 @@ class Monitor:
 			return
 		print("Abfahrten " + self.station_name)
 		print('{:%Y-%m-%d %H:%M:%S}'.format(arrow.get(self.last_update+2*60*60).datetime),"+",int(time.time()-self.last_update))
-		print("timetimetime")
 		if self.truestopamount == 0:
 			print("")
 			print("no data")
@@ -107,7 +106,7 @@ class Monitor:
 			print("")
 
 	
-mon = Monitor(1255)
+mon = Monitor(stop)
 
 while True:
 	mon.update()
