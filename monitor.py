@@ -106,7 +106,7 @@ class Monitor:
 			print("")
 
 	
-mon = Monitor(stop)
+mon = Monitor(stop,4)
 
 while True:
 	mon.update()
