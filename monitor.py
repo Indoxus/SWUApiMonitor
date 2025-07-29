@@ -92,7 +92,7 @@ class Monitor:
 			print("")
 			return
 		print("Abfahrten " + self.station_name)
-		line = '{:%Y-%m-%d %H:%M:%S}'.format(arrow.get(self.last_update+2*60*60).datetime)+"+"+int(time.time()-self.last_update)
+		line = '{:%Y-%m-%d %H:%M:%S}'.format(arrow.get(self.last_update+2*60*60).datetime)+"+"+str(int(time.time()-self.last_update))
 		print(line)
 		if self.truestopamount == 0:
 			print("")
